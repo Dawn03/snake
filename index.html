@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html5</title>
+    <style type="text/css">
+        body {
+            background: #dddddd;
+        }
+        .container {
+            margin-top: 50px; 
+        }
+        #canvas1 {
+            border: #8b4513 solid 5px;
+            border-radius: 5px;
+            margin: 10px;
+            background: #ffffff;
+            display: block;
+        }
+
+        button {
+            background: skyblue;
+            border-radius: 4px;
+            outline: none;
+            color: #ffffff;
+            border: none;
+            padding: 10px 17px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background:rgb(135, 195, 235) ;
+            /* color:rgb(188, 226, 224); */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container" id=container>
+        <center>
+            <button id="startGame">开 始</button>
+            <button id="pouseGame">暂 停</button>
+            <button id="reloadGame">重新开始</button>
+            <canvas id="canvas1" width="720" height="480">
+                canvas not supported
+            </canvas>
+            <span>Score</span>
+        </center>
+        <script src='./snake.js'></script>
+        <script type="text/javascript">
+
+            draw()
+            document.addEventListener('keydown', keyDownCheck, false);
+            document.getElementById('startGame').onclick = (function () {
+                beginGame();
+            });
+            document.getElementById('pouseGame').onclick = (function () {
+                clearInterval(gameTimer);
+            });
+            document.getElementById('reloadGame').onclick = (function () {
+                window.location.reload();
+            });
+        </script>
+
+</body>
+
+</html>
